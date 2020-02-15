@@ -25,12 +25,17 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
+              }
             ],
             "styles": [
               "src/styles.less"
             ],
-            "scripts": []
+            "scripts": ["node_modules/echarts/dist/echarts.min.js"]
           },
           "configurations": {
             "production": {
@@ -71,7 +76,8 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "init-demo:build:production"
+              "browserTarget": "init-demo:build:production",
+              "proxyConfig": "proxy.conf.json"
             }
           }
         },
@@ -124,6 +130,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "init-demo"
 }

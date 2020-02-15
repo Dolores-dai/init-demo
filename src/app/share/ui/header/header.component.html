@@ -1,0 +1,68 @@
+<nz-header class="header">
+  <div class="wrap">
+    <div class="left">
+      <h1>My DSO</h1>
+      <div class="menu">
+        <ul nz-menu nzTheme="dark" nzMode="horizontal" *ngFor="let item of menu">
+          <li nz-menu-item [routerLink]="item.path">{{ item.label }}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="right">
+      <div class="search" #search>
+        <nz-input-group nzSuffixIcon="search">
+          <label>
+            <input #inputElement type="text"
+                   nz-input
+                   placeholder="Search by Account/Opportunity/Project code/MU"
+                   (focus)="onFocus()" (blur)="onBlur()"/>
+          </label>
+        </nz-input-group>
+      </div>
+      <div class="member">
+        <div class="no-login" *ngIf="!user else logined">
+          <ul nz-menu nzTheme="dark" nzMode="horizontal">
+            <li nz-submenu>
+              <div title>
+                <span>登录</span>
+                <i nz-icon type="down" nzTheme="outline"></i>
+              </div>
+              <ul>
+                <li nz-menu-item>
+                  <i nz-icon type="mobile" nzTheme="outline"></i>
+                  Okta登录
+                </li>
+                <li nz-menu-item>
+                  <i nz-icon type="user-add" nzTheme="outline"></i>
+                  注册
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <ng-template #logined>
+          <div class="login">
+            <ul nz-menu nzMode="horizontal" nzTheme="dark">
+              <li nz-submenu>
+                <div title>
+                  <nz-avatar nzIcon="user" [nzSrc]="user.profile.avatarUrl"></nz-avatar>
+                  <i nz-icon type="down" nzTheme="outline"></i>
+                </div>
+                <ul>
+                  <li nz-menu-item [routerLink]="['/member', user.profile.userId]">
+                    <i nz-icon nzType="user" nzTheme="outline"></i>设置
+                  </li>
+                  <li nz-menu-item>
+                    <i nz-icon nzType="close-circle" nzTheme="outline"></i>退出
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+
+  </div>
+</nz-header>
