@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { UiModule } from './ui/ui.module';
+import { NzCardModule, NzGridModule, NzTabsModule } from 'ng-zorro-antd';
 
 
 @NgModule({
@@ -9,10 +10,17 @@ import { UiModule } from './ui/ui.module';
   imports: [
     CommonModule,
     FormsModule,
-    UiModule
+    UiModule,
+    NzGridModule,
+    NzCardModule,
+    NzTabsModule,
   ],
   exports: [
-    UiModule
+    UiModule,
+    NzGridModule,
+    NzCardModule,
+    NzTabsModule,
+    CommonModule
   ]
 })
 export class ShareModule { }

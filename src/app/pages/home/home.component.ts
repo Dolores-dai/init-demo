@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.less']
 })
 export class HomeComponent implements OnInit {
+  index = 0;
+  title = ['DSO','Opportunity without PO','Milestone Overdue','Invoice Overdue'];
 
   constructor() { }
 

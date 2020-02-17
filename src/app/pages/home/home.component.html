@@ -1,6 +1,16 @@
 <div class="home">
-  <div nz-row>
-    <app-opportunity></app-opportunity>
-    <app-dashboard></app-dashboard>
+  <div class="card-tab">
+    <nz-card style="width: 100%">
+      <nz-card-tab  >
+        <nz-tabset nzSize="large" [(nzSelectedIndex)]="index" [nzTabBarExtraContent]="ChinaDSO">
+            <nz-tab *ngFor="let item of title " [nzTitle]=item>
+              <router-outlet></router-outlet>
+            </nz-tab>
+        </nz-tabset>
+      </nz-card-tab>
+    </nz-card>
+    <ng-template #ChinaDSO>
+      <h1>China DSO <b>175</b></h1>
+    </ng-template>
   </div>
 </div>

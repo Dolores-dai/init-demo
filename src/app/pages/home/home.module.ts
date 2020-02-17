@@ -5,7 +5,6 @@ import { HomeComponent } from './home.component';
 import { ShareModule } from '../../share/share.module';
 import { OpportunityModule } from '../opportunity/opportunity.module';
 import { DashboardModule } from '../dashboard/dashboard.module';
-import { NzGridModule } from 'ng-zorro-antd';
 
 
 @NgModule({
@@ -15,7 +14,6 @@ import { NzGridModule } from 'ng-zorro-antd';
     OpportunityModule,
     DashboardModule,
     HomeRoutingModule,
-    NzGridModule
   ],
   exports: [
     OpportunityModule,
