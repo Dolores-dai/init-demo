@@ -1,0 +1,25 @@
+<div class="opportunity-detail">
+  <nz-table [nzShowPagination]="false" [nzData]="details" [nzLoading]="loading" [nzPageSize]="50" [nzScroll]="{ y:
+  '240px' }">
+    <thead>
+    <tr>
+      <th nzWidth="450px">Opportunity</th>
+      <th nzWidth="150px">BU/MU</th>
+      <th nzWidth="150px">Unbilled DSO</th>
+      <th nzWidth="150px">BilledDso</th>
+      <th nzWidth="150px">DSO</th>
+      <th>Opportunity Owner</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of details">
+      <td><app-table-item [opportunity]="item.opportunity"></app-table-item></td>
+      <td>{{ item.mu}}</td>
+      <td>{{ item.unbilledDso}}</td>
+      <td>{{ item.billedDso}}</td>
+      <td>{{ item.dso}}</td>
+      <td>{{ item.opportunityOwner}}</td>
+    </tr>
+    </tbody>
+  </nz-table>
+</div>

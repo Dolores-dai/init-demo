@@ -9,17 +9,18 @@ import {
   NzInputModule,
   NzLayoutModule,
   NzMenuModule,
-  NzSwitchModule,
+  NzSwitchModule, NzTableModule,
 } from 'ng-zorro-antd';
 import { SearchPanelComponent } from './search-panel/search-panel.component';
 import { EchartComponent } from './echart/echart.component';
 import { NgxEchartsModule } from 'ngx-echarts';
-import { CardComponent } from './card/card.component';
 import { FormsModule } from '@angular/forms';
+import { TableComponent } from './table/table.component';
+import { TableItemComponent } from './table-item/table-item.component';
 
 
 @NgModule({
-  declarations: [HeaderComponent, SearchPanelComponent, EchartComponent, CardComponent],
+  declarations: [HeaderComponent, SearchPanelComponent, EchartComponent, TableComponent, TableItemComponent,],
   imports: [
     RouterModule,
     CommonModule,
@@ -32,8 +33,9 @@ import { FormsModule } from '@angular/forms';
     NzCardModule,
     NzSwitchModule,
     FormsModule,
+    NzTableModule,
   ],
-  exports: [HeaderComponent, EchartComponent, CardComponent],
+  exports: [HeaderComponent, EchartComponent, TableComponent],
   entryComponents: [SearchPanelComponent],
 })
 export class UiModule { }

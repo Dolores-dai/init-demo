@@ -18,6 +18,7 @@ import { DashboardModule } from '../dashboard/dashboard.module';
   exports: [
     OpportunityModule,
     DashboardModule,
-  ]
+    HomeComponent,
+  ],
 })
 export class HomeModule { }

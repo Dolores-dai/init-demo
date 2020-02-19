@@ -1,16 +1,20 @@
 <div class="home">
   <div class="card-tab">
     <nz-card style="width: 100%">
-      <nz-card-tab  >
-        <nz-tabset nzSize="large" [(nzSelectedIndex)]="index" [nzTabBarExtraContent]="ChinaDSO">
-            <nz-tab *ngFor="let item of title " [nzTitle]=item>
-              <router-outlet></router-outlet>
-            </nz-tab>
+      <nz-card-tab>
+        <nz-tabset nzLinkRouter nzSize="large" [(nzSelectedIndex)]="index" [nzTabBarExtraContent]="ChinaDSO">
+          <nz-tab *ngFor="let item of title,let path of paths" >
+              <a  nz-tab-link [routerLink]="['.']" [queryParams]="{path:path}"
+                 queryParamsHandling="merge">{{ item }}</a>
+          </nz-tab>
         </nz-tabset>
       </nz-card-tab>
     </nz-card>
     <ng-template #ChinaDSO>
       <h1>China DSO <b>175</b></h1>
     </ng-template>
+  </div>
+  <div class="main">
+    <router-outlet></router-outlet>
   </div>
 </div>

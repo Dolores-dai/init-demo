@@ -8,10 +8,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then(model => model.HomeModule)
   },
   {
-    path: 'opportunity/:id',
-    loadChildren: () => import('./pages/opportunity-detail/opportunity-detail.module').then(model => model.OpportunityDetailModule)
-  },
-  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'
