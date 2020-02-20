@@ -1,4 +1,11 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { User } from '../../../types/user.type';
 import { SearchResult } from '../../../types/search-result.type';
@@ -6,41 +13,41 @@ import { fromEvent } from 'rxjs';
 import { debounceTime, distinctUntilChanged, pluck } from 'rxjs/operators';
 import { SearchService } from '../../../services/search.service';
 import { isEmptyObject } from '../../../utils/tools';
-import { Overlay, OverlayRef } from '@angular/cdk/overlay';
-import { ComponentPortal } from '@angular/cdk/portal';
 import { SearchPanelComponent } from '../search-panel/search-panel.component';
+import { ComponentPortal } from '@angular/cdk/portal';
+import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.less']
+  styleUrls: ['./header.component.less'],
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
-
   opportunity = { id: 1 };
-  menu = [{
-    label: '首页',
-    path: '/home'
-  }, {
-    label: '详情',
-    path: '/opportunity/2'
-  }];
+  menu = [
+    {
+      label: '首页',
+      path: '/home',
+    },
+    {
+      label: '详情',
+      path: '/opportunity/2',
+    },
+  ];
   user: User;
   searchResult: SearchResult;
   @ViewChild('inputElement', { static: true }) inputElement: ElementRef;
   private overlayRef: OverlayRef;
   @ViewChild('search', { static: false }) private defaultRef: ElementRef;
 
-  constructor(private authSever: AuthService,
-              private searchSever: SearchService,
-              private overlay: Overlay,
-              private viewContainerRef: ViewContainerRef,
-  ) {
-  }
+  constructor(
+    private authSever: AuthService,
+    private searchSever: SearchService,
+    private overlay: Overlay,
+    private viewContainerRef: ViewContainerRef,
+  ) {}
 
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   ngAfterViewInit(): void {
     this.onChanges();
@@ -65,19 +72,26 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   private showOverlayPanel() {
     this.hideOverlayPanel();
-    const positionStrategy = this.overlay.position()
+    const positionStrategy = this.overlay
+      .position()
       .flexibleConnectedTo(this.defaultRef)
-      .withPositions([{
-        originX: 'start',
-        originY: 'bottom',
-        overlayX: 'start',
-        overlayY: 'top'
-      }]).withLockedPosition(true);
+      .withPositions([
+        {
+          originX: 'start',
+          originY: 'bottom',
+          overlayX: 'start',
+          overlayY: 'top',
+        },
+      ])
+      .withLockedPosition(true);
     this.overlayRef = this.overlay.create({
       positionStrategy,
-      scrollStrategy: this.overlay.scrollStrategies.reposition()
+      scrollStrategy: this.overlay.scrollStrategies.reposition(),
     });
-    const panelPortal = new ComponentPortal(SearchPanelComponent, this.viewContainerRef);
+    const panelPortal = new ComponentPortal(
+      SearchPanelComponent,
+      this.viewContainerRef,
+    );
     const panelRef = this.overlayRef.attach(panelPortal);
     panelRef.instance.searchResult = this.searchResult;
     this.overlayRef.backdropClick().subscribe(() => {

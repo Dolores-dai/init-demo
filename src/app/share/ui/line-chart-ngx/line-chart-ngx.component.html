@@ -1,0 +1,24 @@
+<ngx-charts-line-chart
+  class="ff"
+  [view]="view"
+  [scheme]="colorScheme"
+  [results]="multi"
+  [xAxis]="xAxis"
+  [yAxis]="yAxis"
+  [curve]="curveFunc"
+  [gradient]="true"
+  [showRefLabels]="true"
+  [showRefLines]="true"
+  [roundDomains]="true"
+>
+  <ng-template #tooltipTemplate let-model="model">
+    <div class="dd">
+      This is the single point tooltip template
+      <pre>{{ model | json }}</pre>
+    </div>
+  </ng-template>
+</ngx-charts-line-chart>
+
+<h2>pipe grid</h2>
+<ngx-charts-pie-grid [view]="view" [scheme]="colorScheme" [results]="single">
+</ngx-charts-pie-grid>

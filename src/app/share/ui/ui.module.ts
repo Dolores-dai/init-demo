@@ -9,7 +9,8 @@ import {
   NzInputModule,
   NzLayoutModule,
   NzMenuModule,
-  NzSwitchModule, NzTableModule,
+  NzSwitchModule,
+  NzTableModule,
 } from 'ng-zorro-antd';
 import { SearchPanelComponent } from './search-panel/search-panel.component';
 import { EchartComponent } from './echart/echart.component';
@@ -17,10 +18,21 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { FormsModule } from '@angular/forms';
 import { TableComponent } from './table/table.component';
 import { TableItemComponent } from './table-item/table-item.component';
-
+import { LineChartNg2Component } from './line-chart-ng2/line-chart-ng2.component';
+import { ChartsModule } from 'ng2-charts';
+import { LineChartNgxComponent } from './line-chart-ngx/line-chart-ngx.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
-  declarations: [HeaderComponent, SearchPanelComponent, EchartComponent, TableComponent, TableItemComponent,],
+  declarations: [
+    HeaderComponent,
+    SearchPanelComponent,
+    EchartComponent,
+    TableComponent,
+    TableItemComponent,
+    LineChartNg2Component,
+    LineChartNgxComponent,
+  ],
   imports: [
     RouterModule,
     CommonModule,
@@ -34,8 +46,16 @@ import { TableItemComponent } from './table-item/table-item.component';
     NzSwitchModule,
     FormsModule,
     NzTableModule,
+    ChartsModule,
+    NgxChartsModule,
   ],
-  exports: [HeaderComponent, EchartComponent, TableComponent],
+  exports: [
+    HeaderComponent,
+    EchartComponent,
+    TableComponent,
+    LineChartNg2Component,
+    LineChartNgxComponent,
+  ],
   entryComponents: [SearchPanelComponent],
 })
-export class UiModule { }
+export class UiModule {}
