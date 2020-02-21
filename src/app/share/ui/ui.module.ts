@@ -8,9 +8,9 @@ import {
   NzIconModule,
   NzInputModule,
   NzLayoutModule,
-  NzMenuModule,
+  NzMenuModule, NzProgressModule,
   NzSwitchModule,
-  NzTableModule,
+  NzTableModule, NzToolTipModule,
 } from 'ng-zorro-antd';
 import { SearchPanelComponent } from './search-panel/search-panel.component';
 import { EchartComponent } from './echart/echart.component';
@@ -22,6 +22,7 @@ import { LineChartNg2Component } from './line-chart-ng2/line-chart-ng2.component
 import { ChartsModule } from 'ng2-charts';
 import { LineChartNgxComponent } from './line-chart-ngx/line-chart-ngx.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { TooltipComponent } from './tooltip/tooltip.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     TableItemComponent,
     LineChartNg2Component,
     LineChartNgxComponent,
+    TooltipComponent,
   ],
   imports: [
     RouterModule,
@@ -48,6 +50,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     NzTableModule,
     ChartsModule,
     NgxChartsModule,
+    NzToolTipModule,
+    NzProgressModule,
   ],
   exports: [
     HeaderComponent,

@@ -1,1 +1,49 @@
-<div echarts [options]="chartOption" class="demo-chart"></div>
+<div class="main-container">
+  <div echarts [options]="chartOption" class="demo-chart" (chartClick)="mouseHover$($event)">
+
+  </div>
+  <div class="progress-container">
+    <h1 [ngStyle]="{'left': style.left, 'top': style.top}">DSO</h1>
+    <nz-progress [hidden]="hidden" class="progress"
+                 [ngStyle]="{'left': style.left, 'top': style.top}"
+                 nz-tooltip
+                 nzType="dashboard"
+                 [nzPercent]="60"
+                 [nzSuccessPercent]="30"
+    >
+    </nz-progress>
+  </div>
+</div>
+
+<div class="tooltip-container"
+     style="text-align: center;width: 130px;height: 150px;border-radius: 16px;background-color: rgba(46, 68, 145, 0.8);font-family: PingFangSC, serif;font-size: 16px;font-weight: 300;font-stretch: normal;font-style: normal;line-height: 1.67;letter-spacing: normal;color: #ffffff;">
+  <p class="title" style="width: 72px;height: 16px;text-align: center;padding-top: 20px;margin: 0 auto 33px;">
+    15/07/2020</p>
+  <div class="container" style="display: flex;justify-content: center;">
+    <table style="display: flex">
+      <thead>
+      <tr>
+        <td style="width: 44px;height: 16px;">Overall</td>
+      </tr>
+      <tr>
+        <td style="width: 44px;height: 16px;">Billed</td>
+      </tr>
+      <tr>
+        <td style="width: 44px;height: 16px;">Unbilled</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td class="emphasis" style="color: #db5157;">176</td>
+      </tr>
+      <tr>
+        <td class="normal" style="color: #fad455;">48</td>
+      </tr>
+      <tr>
+        <td class="emphasis" style="color: #db5157;">128</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

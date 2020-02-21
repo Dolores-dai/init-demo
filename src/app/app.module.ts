@@ -12,12 +12,14 @@ import zh from '@angular/common/locales/zh';
 import { PagesModule } from './pages/pages.module';
 import { ServicesModule } from './services/services.module';
 import { ShareModule } from './share/share.module';
+import { chartReducer } from './store/reducers';
+import { StoreModule } from '@ngrx/store';
 
 registerLocaleData(zh);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     PagesModule,
@@ -28,10 +30,10 @@ registerLocaleData(zh);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    AppRoutingModule
-  ],
+    StoreModule.forRoot({ chart: chartReducer, }),
+    AppRoutingModule],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {
 }
