@@ -14,12 +14,14 @@ import { ServicesModule } from './services/services.module';
 import { ShareModule } from './share/share.module';
 import { chartReducer } from './store/reducers';
 import { StoreModule } from '@ngrx/store';
+import { HomeDemoComponent } from './home-demo/home-demo.component';
 
 registerLocaleData(zh);
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeDemoComponent,
   ],
   imports: [
     PagesModule,
