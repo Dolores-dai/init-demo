@@ -15,12 +15,24 @@
     </nz-sider>
     <nz-layout class="right-container">
       <nz-header class="header">
-        <div class="trigger" (click)="isCollapsed = !isCollapsed">
-          <i class="trigger-icon" nz-icon [nzType]="isCollapsed? 'right' : 'left'" nzTheme="outline"></i>
+        <div class="left-container">
+          <div class="trigger" (click)="isCollapsed = !isCollapsed">
+            <i class="trigger-icon" nz-icon [nzType]="isCollapsed? 'right' : 'left'" nzTheme="outline"></i>
+          </div>
+            <nz-input-group nzPrefixIcon="search" #search>
+              <label>
+                <input #inputElement type="text"
+                       nz-input
+                       placeholder="Search by Account/Opportunity/Project code/MU">
+              </label>
+            </nz-input-group>
+        </div>
+        <div class="login-container">
+          <i nz-icon nzType="user" nzTheme="outline" class="login"></i>
         </div>
       </nz-header>
       <nz-content>
-        <router-layout></router-layout>
+        <router-outlet></router-outlet>
       </nz-content>
     </nz-layout>
   </nz-layout>
