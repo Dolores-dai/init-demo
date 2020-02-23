@@ -1,0 +1,27 @@
+<div class="layout">
+  <nz-layout class="side-nav">
+    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+      <div class="logo">
+        <span class="logo-dso">DSO</span>
+        <span class="logo-management" *ngIf="!isCollapsed">Management</span>
+      </div>
+      <ul nz-menu nzTheme=light nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+        <li nz-menu-item *ngFor="let item of routers">
+          <a [routerLink]="item.path">
+            <span class="logo-dot">•</span>
+            {{ isCollapsed ? item.collapsedTitle : item.title }}</a>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout class="right-container">
+      <nz-header class="header">
+        <div class="trigger" (click)="isCollapsed = !isCollapsed">
+          <i class="trigger-icon" nz-icon [nzType]="isCollapsed? 'right' : 'left'" nzTheme="outline"></i>
+        </div>
+      </nz-header>
+      <nz-content>
+        <router-layout></router-layout>
+      </nz-content>
+    </nz-layout>
+  </nz-layout>
+</div>
