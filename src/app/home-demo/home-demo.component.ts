@@ -35,7 +35,6 @@ export class HomeDemoComponent implements OnInit {
     path: 'invoice',
     collapsedTitle: 'Inv...',
   }];
-  hover = false;
 
   constructor() {
   }
